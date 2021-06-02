@@ -1,18 +1,28 @@
-# google-translate-api [![Build Status](https://travis-ci.org/matheuss/google-translate-api.svg?branch=master)](https://travis-ci.org/matheuss/google-translate-api) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![Coverage Status](https://coveralls.io/repos/github/matheuss/google-translate-api/badge.svg?branch=master)](https://coveralls.io/github/matheuss/google-translate-api?branch=master) [![Known Vulnerabilities](https://snyk.io/test/npm/google-translate-api/badge.svg)](https://snyk.io/test/npm/google-translate-api)
+本仓库fork自[google-translate-api](https://github.com/matheuss/google-translate-api)
+
+并做了以下修改
+
+- 将api地址改为`https://translate.google.cn`
+- 将client改为gtx
+- 对依赖`google-translate-token`做了类似的更改
+
+详情可见[此commit](https://github.com/laincarl/google-translate-api/commit/69656d85be626d9104cff6eda9c49cdef70cc0e3)
+
+# google-translate-api [![Coverage Status](https://coveralls.io/repos/github/matheuss/google-translate-api/badge.svg?branch=master)](https://coveralls.io/github/matheuss/google-translate-api?branch=master)
 
 A **free** and **unlimited** API for Google Translate :dollar::no_entry_sign:
 
-## Features 
+## Features
 
 - Auto language detection
 - Spelling correction
-- Language correction 
-- Fast and reliable – it uses the same servers that [translate.google.com](https://translate.google.com) uses
+- Language correction
+- Fast and reliable – it uses the same servers that [translate.google.cn](https://translate.google.cn) uses
 
-## Install 
+## Install
 
 ```
-npm install --save google-translate-api
+npm install --save @ori/google-translate-api
 ```
 
 ## Usage
@@ -20,7 +30,7 @@ npm install --save google-translate-api
 From automatic language detection to English:
 
 ``` js
-const translate = require('google-translate-api');
+const translate = require('@ori/google-translate-api');
 
 translate('Ik spreek Engels', {to: 'en'}).then(res => {
     console.log(res.text);
@@ -99,7 +109,7 @@ Type: `boolean` Default: `false`
 
 If `true`, the returned object will have a `raw` property with the raw response (`string`) from Google Translate.
 
-### Returns an `object`:
+### Returns an `object`
 
 - `text` *(string)* – The translated text.
 - `from` *(object)*
@@ -122,6 +132,7 @@ translate('I spea Dutch').then(res => {
     console.error(err);
 });
 ```
+
 Otherwise, it will be an empty `string` (`''`).
 
 ## Related
